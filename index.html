@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Backtesting Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Trading Backtesting Tracker</h1>
+        <form id="tradeForm">
+            <input type="number" id="pips" placeholder="Pips (+75 or -15)" required>
+            <input type="month" id="month" required>
+            <input type="number" id="tradesCount" placeholder="Number of Trades" required>
+            <button type="submit">Add Trade</button>
+        </form>
+        <div id="cardsContainer" class="cards"></div>
+    </div>
+
+    <!-- Modal structure for editing a trade -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Edit Trade</h2>
+            <form id="editForm">
+                <label for="editPips">Pips:</label>
+                <input type="number" id="editPips" required>
+                <label for="editMonth">Month:</label>
+                <input type="month" id="editMonth" required>
+                <input type="hidden" id="editIndex"> <!-- Hidden input for trade index -->
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
