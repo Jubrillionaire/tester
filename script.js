@@ -62,10 +62,13 @@ function updateDisplay(trades) {
         const { pips, month } = trade;
         const percentageWinLoss = ((pips * 133.33) / accountSize * 100).toFixed(2) + '%';
 
+        const [year, monthIndex] = month.split('-');
+        const displayDate = new Date(year, monthIndex - 1); // Correctly create the date object
+
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-            <h2>${new Date(month + '-01').toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
+            <h2>${displayDate.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
             <p>Total Pips: ${pips}</p>
             <p>Percentage Win/Loss: ${percentageWinLoss}</p>
             <button onclick="deleteTrade(${index})">Delete</button>
